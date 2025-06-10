@@ -1,0 +1,86 @@
+#---------------------------------------------#
+# Author: Adam WezvaTechnologies
+# Call/Whatsapp: +91-9739110917
+#---------------------------------------------#
+
+- name: ensure the jenkins apt repository key is installed
+  get_url: url="{{jenkins_repo}}/jenkins.io-2023.key" dest="/usr/share/keyrings/jenkins-keyring.asc" 
+
+- name: ensure the repository is configured
+  apt_repository: repo="deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] {{jenkins_repo}} binary/" state=present
+
+- name: Update and upgrade apt packages
+  apt:
+    upgrade: yes
+    update_cache: yes
+
+- name: Install Java & fontconfig
+  package: name={{item}} state=present
+  loop:
+  - "{{java}}"
+  - fontconfig
+  - nfs-common
+  - mount
+
+- name: ensure jenkins is installed
+  apt: name=jenkins state=latest
+
+# - name: Ensure EFS entry exists in /etc/fstab
+#   mount:
+#     path: /var/lib/jenkins
+#     src: "{{efs}}.efs.ap-south-1.amazonaws.com:/"
+#     fstype: nfs4
+#     opts: "_netdev"
+#     state: mounted
+
+- name: echo efs
+  command: echo "efs"
+  
+- name: Ensure EFS entry exists in /var/lib/jenkins
+  command: sudo mount -t nfs4 -o nfsvers=4.1 {{efs}}.efs.ap-south-1.amazonaws.com:/ /var/lib/jenkins/
+
+- name: Ensure EFS entry exists in /etc/fstab
+  mount:
+    path: /var/lib/jenkins
+    src: "{{efs}}.efs.ap-south-1.amazonaws.com:/"
+    fstype: nfs4
+    opts: "_netdev"
+    state: mounted
+
+- name: Ensure EFS entry exists in /etc/fstab
+  mount:
+    path: /var/lib/jenkins
+    src: "{{efs}}.efs.ap-south-1.amazonaws.com:/"
+    fstype: nfs4
+    opts: "_netdev"
+    state: present
+
+- name: Change permission back to Jenkins user
+  file:
+    path: /var/lib/jenkins
+    owner: jenkins
+    group: jenkins
+    state: directory
+    recurse: yes
+
+- name: Mount all file systems from fstab
+  command: mount -a
+  when: ansible_mounts | selectattr('mount', '==', '/var/lib/jenkins') | list | length == 0
+
+- name: Check if port 8080 is listening
+  wait_for:
+    port: 8080
+    timeout: 180
+    msg: "Timeout waiting for 8080 to respond"
+  register: port_check
+  ignore_errors: yes
+
+- name: Print message if Jenkins is not running
+  debug:
+    msg: "*== Jenkins NOT Running ==*"
+  when: port_check.failed == true
+
+#---------------------------------------------#
+# Author: Adam WezvaTechnologies
+# Call/Whatsapp: +91-9739110917
+#---------------------------------------------#

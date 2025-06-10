@@ -1,0 +1,20 @@
+#---------------------------------------------#
+# Author: Adam WezvaTechnologies
+# Call/Whatsapp: +91-9739110917
+#---------------------------------------------#
+
+---
+- name: Install Jenkins
+  hosts: localhost
+  become: yes
+  vars:
+   reboot_ok: false
+   ami_setup: true
+  roles:
+    - { role: master, when: ami_setup }
+    - ospatch
+
+#---------------------------------------------#
+# Author: Adam WezvaTechnologies
+# Call/Whatsapp: +91-9739110917
+#---------------------------------------------#
