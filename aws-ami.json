@@ -44,7 +44,7 @@
       
         {
             "type": "shell",
-            "inline": ["./setup.sh {{user `efsid`}}"]
+            "inline": ["chmod +x setup.sh","./setup.sh {{user `efsid`}}"]
         }
     ]
 
