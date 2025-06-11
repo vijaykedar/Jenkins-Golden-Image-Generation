@@ -5,12 +5,11 @@
 
 #!/bin/bash
 efs=$1
-sudo su
 echo "#----------------------#"
 echo "-- Install ansible --"
 echo "#----------------------#"
-sudo apt-get update -y
-sudo apt-get install ansible -y
+apt-get update -y
+apt-get install ansible -y
 
 cd /home/ubuntu
 echo "#-------------------------------------#"
