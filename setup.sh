@@ -9,8 +9,8 @@ efs=$1
 echo "#----------------------#"
 echo "-- Install ansible --"
 echo "#----------------------#"
-sudo apt-get update
-sudo apt-get install -y ansible
+sudo apt-get update -y
+sudo apt-get install ansible -y
 
 cd /home/ubuntu
 echo "#-------------------------------------#"
