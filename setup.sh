@@ -16,6 +16,10 @@ cd /home/ubuntu
 echo "#-------------------------------------#"
 echo "-- Extracting ansible scripts --"
 echo "#-------------------------------------#"
+if [ ! -f jenkinsrole.tar ]; then
+  echo "ERROR: jenkinsrole.tar not found!"
+  exit 1
+fi
 tar -xvf jenkinsrole.tar
 
 echo "#------------------------------------------------------------#"
