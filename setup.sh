@@ -9,8 +9,8 @@ efs=$1
 echo "#----------------------#"
 echo "-- Install ansible --"
 echo "#----------------------#"
-sudo apt update
-sudo apt install -y ansible
+sudo apt-get update
+sudo apt-get install -y ansible
 
 cd /home/ubuntu
 echo "#-------------------------------------#"
@@ -26,7 +26,7 @@ ansible-playbook jenkins.yml -e "efs=$efs"
 echo "#----------------------#"
 echo "-- Remove ansible --"
 echo "#----------------------#"
-sudo apt remove -y ansible
+sudo apt-get remove -y ansible
 
 #---------------------------------------------#
 # Author: Adam WezvaTechnologies
