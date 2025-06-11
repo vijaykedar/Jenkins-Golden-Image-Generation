@@ -5,7 +5,7 @@
 
 #!/bin/bash
 efs=$1
-
+sudo su
 echo "#----------------------#"
 echo "-- Install ansible --"
 echo "#----------------------#"
@@ -16,7 +16,8 @@ cd /home/ubuntu
 echo "#-------------------------------------#"
 echo "-- Extracting ansible scripts --"
 echo "#-------------------------------------#"
-if [ ! -f jenkinsrole.tar ]; then
+if [ ! -f jenkinsrole.tar ];
+then
   echo "ERROR: jenkinsrole.tar not found!"
   exit 1
 fi
