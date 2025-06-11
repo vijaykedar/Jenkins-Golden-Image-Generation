@@ -36,20 +36,10 @@
             "inline": ["chmod +x setup.sh"]
         },
 
-       {
-            "type": "shell",
-            "inline": ["sudo apt-get update -y"]
-        },
-        {
-            "type": "shell",
-            "inline": ["sudo apt-get install dos2unix -y && sudo dos2unix setup.sh"]
-        },
-        
-
       
         {
             "type": "shell",
-            "inline": ["./setup.sh {{user `efsid`}}"]
+            "inline": ["bash ./setup.sh {{user `efsid`}}"]
         }
     ]
 
