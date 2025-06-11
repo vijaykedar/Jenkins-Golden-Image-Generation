@@ -37,6 +37,13 @@
         },
         {
             "type": "shell",
+            "inline": ["apt-get install dos2unix -y && dos2unix setup.sh"]
+        },
+        
+
+      
+        {
+            "type": "shell",
             "inline": ["./setup.sh {{user `efsid`}}"]
         }
     ]
