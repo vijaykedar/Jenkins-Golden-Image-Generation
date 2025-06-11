@@ -33,7 +33,7 @@
         },
         {
             "type": "shell",
-            "inline": ["./setup.sh {{user `efsid`}}"]
+            "inline": ["bash ./setup.sh {{user `efsid`}}"]
         }
     ]
 
