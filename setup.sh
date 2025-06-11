@@ -5,6 +5,7 @@
 
 #!/bin/bash
 efs=$1
+set -x
 
 echo "#----------------------#"
 echo "-- Install ansible --"
