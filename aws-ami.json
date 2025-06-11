@@ -33,6 +33,10 @@
         },
         {
             "type": "shell",
+            "inline": ["chmod +x setup.sh"]
+        },
+        {
+            "type": "shell",
             "inline": ["./setup.sh {{user `efsid`}}"]
         }
     ]
