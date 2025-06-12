@@ -4,7 +4,7 @@
 //---------------------------------------------
 
 pipeline {
-agent { label 'packer' }
+agent any
 
 // Ensure environment variables are set as secret text type //
 environment {
