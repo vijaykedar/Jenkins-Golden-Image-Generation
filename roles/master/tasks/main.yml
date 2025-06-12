@@ -2,43 +2,25 @@
 # Author: Adam WezvaTechnologies
 # Call/Whatsapp: +91-9739110917
 #---------------------------------------------#
-
-# Define valid Jenkins version and repo in your vars file or top of playbook
-vars:
-  java: openjdk-17-jdk
-  jenkins_repo: https://pkg.jenkins.io/debian-stable
-  jenkins_version: 2.440.1  # Make sure this version is valid (run `apt-cache madison jenkins` to check)
-
 # Ensure Jenkins GPG key is added
-- name: Ensure the Jenkins APT repository key is installed
-  get_url:
-    url: "{{ jenkins_repo }}/jenkins.io-2023.key"
-    dest: /usr/share/keyrings/jenkins-keyring.asc
+- name: ensure the jenkins apt repository key is installed
+  get_url: url="{{jenkins_repo}}/jenkins.io-2023.key" dest="/usr/share/keyrings/jenkins-keyring.asc" 
 
-# Add the Jenkins repo
-- name: Ensure the Jenkins repository is configured
-  apt_repository:
-    repo: "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] {{ jenkins_repo }} binary/"
-    state: present
-    filename: jenkins
+- name: ensure the repository is configured
+  apt_repository: repo="deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] {{jenkins_repo}} binary/" state=present
 
-# Update APT cache after adding repo
-- name: Update apt cache
+- name: Update and upgrade apt packages
   apt:
+    upgrade: yes
     update_cache: yes
-    cache_valid_time: 3600
 
-# Install Java & dependencies
-- name: Install Java, fontconfig, and NFS packages
-  apt:
-    name: "{{ item }}"
-    state: present
+- name: Install Java & fontconfig
+  package: name={{item}} state=present
   loop:
-    - "{{ java }}"
-    - fontconfig
-    - nfs-common
-    - mount
-
+  - "{{java}}"
+  - fontconfig
+  - nfs-common
+  - mount
 # Install specific Jenkins version
 - name: Ensure specific Jenkins version is installed
   apt:
