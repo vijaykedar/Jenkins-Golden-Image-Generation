@@ -12,7 +12,7 @@
    ami_setup: true
   roles:
     - { role: master, when: ami_setup }
-    - ospatch
+    
 
 #---------------------------------------------#
 # Author: Adam WezvaTechnologies
