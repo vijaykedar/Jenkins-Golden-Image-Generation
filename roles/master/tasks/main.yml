@@ -23,7 +23,9 @@
   - mount
 
 - name: ensure jenkins is installed
-  apt: name=jenkins state=latest
+  apt:
+      name: "jenkins={{ jenkins_version }}"
+      state: present
 
 # - name: Ensure EFS entry exists in /etc/fstab
 #   mount:
