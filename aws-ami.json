@@ -4,7 +4,7 @@
         "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
         "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
         "region":         "ap-south-1",
-        "baseimage":       "ami-0f918f7e67a3323f0",
+        "baseimage":       "ami-05e08155b4e86ff03",
         "efsid": "" 
     },
     "builders": [
@@ -14,7 +14,7 @@
             "instance_type": "t2.micro",
             "region": "ap-south-1",
             "secret_key": "{{user `aws_secret_key`}}",
-            "source_ami": "ami-0f918f7e67a3323f0",
+            "source_ami": "ami-05e08155b4e86ff03",
             "ssh_username": "ubuntu",
             "temporary_key_pair_type": "ed25519",
             "type": "amazon-ebs"
