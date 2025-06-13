@@ -36,6 +36,7 @@ stages{
                 }
             }
         }
+}
 
 post {
         always {
