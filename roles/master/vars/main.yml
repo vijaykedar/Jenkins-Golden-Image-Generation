@@ -6,8 +6,7 @@
 ---
 java: openjdk-17-jdk
 jenkins_repo: https://pkg.jenkins.io/debian-stable
-jenkins_version: 2.401.1
-
+jenkins_version: 2.500
 #---------------------------------------------#
 # Author: Adam WezvaTechnologies
 # Call/Whatsapp: +91-9739110917
