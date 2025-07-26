@@ -1,8 +1,6 @@
 # jenkins_goldenimage
 
-<html><body><h1 style="font-size:50px;color:blue;">Vijay | <font style="color:red;"> www.devopsfront.com | <font style="color:green;"> contact@devopsfront.com </h1>
-<h1> Subscribe to our youtube channel: 
-<a href="https://www.youtube.com/c/DevOpsLearnEasy">https://www.youtube.com/c/DevOpsLearnEasy</a> </h1>
+<html><body><h3 style="font-size:50px;color:blue;">Vijay | <font style="color:red;"> www.devopsfront.com | <font style="color:green;"> contact@devopsfront.com </h3>
 </body></html>
 
 ## Ensure Packer 1.8.7 is available - the script is tested against this version at the time of creation ##
