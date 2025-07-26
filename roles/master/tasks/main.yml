@@ -1,6 +1,5 @@
 #---------------------------------------------#
-# Author: Adam WezvaTechnologies
-# Call/Whatsapp: +91-9739110917
+# Author: Vijay
 #---------------------------------------------#
 # Ensure Jenkins GPG key is added
 - name: ensure the jenkins apt repository key is installed
@@ -85,6 +84,5 @@
   when: port_check.failed == true
 
 #---------------------------------------------#
-# Author: Adam WezvaTechnologies
-# Call/Whatsapp: +91-9739110917
+# Author: Vijay
 #---------------------------------------------#

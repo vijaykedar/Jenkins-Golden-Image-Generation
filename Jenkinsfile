@@ -1,6 +1,5 @@
 //---------------------------------------------
-// Author: Adam WezvaTechnologies
-// Call/Whatsapp: +91-9739110917
+// Author: Vijay Kedar
 //---------------------------------------------
 
 pipeline {
@@ -49,6 +48,5 @@ post {
 }
 
 //---------------------------------------------
-// Author: Adam WezvaTechnologies
-// Call/Whatsapp: +91-9739110917
+// Author: Vijay Kedar
 //---------------------------------------------

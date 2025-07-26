@@ -1,8 +1,3 @@
-#---------------------------------------------#
-# Author: Adam WezvaTechnologies
-# Call/Whatsapp: +91-9739110917
-#---------------------------------------------#
-
 provider "aws" {
   region = "ap-south-1"
 }
@@ -19,7 +14,3 @@ resource "null_resource" "script_file" {
   }
 }
 
-#---------------------------------------------#
-# Author: Adam WezvaTechnologies
-# Call/Whatsapp: +91-9739110917
-#---------------------------------------------#
